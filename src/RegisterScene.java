@@ -23,12 +23,12 @@ public class RegisterScene {
 
             if (!username.isEmpty() && !password.isEmpty()) {
                 try {
-                    String[] keys = KeyGeneratorUtil.generateKeyPairBase64();
+                    String[] keys = EncryptionService.generateKeyPair();
 
                     User newUser = new User(username.hashCode(), username, keys[0]);
-                    KeyStorageUtil.savePrivateKey(keys[1], username);
+                    EncryptionService.savePrivateKey(keys[1], username);
 
-                    ServerData.getInstance().registerUser(newUser); //narazie rejestrujemy użytkownika w lokalnej klasie serwer-like
+                    ServerData.getInstance().registerUser(newUser); // !
 
                     infoLabel.setText("Rejestracja przeszła pomyślnie.");
                     infoLabel.setTextFill(Color.GREEN);

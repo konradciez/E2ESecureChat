@@ -22,7 +22,7 @@ public class LoginScene {
             String password = passwordField.getText();
 
             User user = ServerData.getInstance().getUserByLogin(username);
-            if (user != null && password.equals("a")) { //narazie tylko ogólne hasło
+            if (user != null && password.equals("a")) { // !
                 app.showProfileScene(user);
             } else {
                 infoLabel.setText("Niepoprawne dane logowania.");

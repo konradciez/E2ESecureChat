@@ -6,7 +6,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-        this.primaryStage = stage;
+        primaryStage = stage;
         showLoginScene();
         primaryStage.setTitle("E2E Secure");
         primaryStage.show();
@@ -21,7 +21,6 @@ public class Main extends Application {
     }
 
     public void showProfileScene(User user) {
-        UserService.getInstance().login(user);
         primaryStage.setScene(new ChatScene(this, user).getScene());
     }
 }
